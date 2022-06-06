@@ -1,0 +1,23 @@
+[
+    {
+        "id": "e-mlURKv_xTypwG2Ct0nE",
+        "imagen": "../img/GA-H310M-H-S1151.png",
+        "precio": "8999",
+        "nombreProducto": "GIGABYTE GA-H310M-H S1151",
+        "vendedor": "Gigabyte"
+    },
+    {
+        "id": "0ac5AiCNzmysL1b89cwnQ",
+        "imagen": "../img/GA-H310M-DS21151S-HDMI.png",
+        "precio": "9599",
+        "nombreProducto": "GA-H310M-DS21151S-HDMI",
+        "vendedor": "Gigabyte"
+    },
+    {
+        "id": "nqoVPyd7qsp6js-Ii2y1A",
+        "imagen": "../img/ASUS PRIME B450M-A II AM4 M-ATX.png",
+        "precio": "12999",
+        "nombreProducto": "ASUS PRIME B450M-A II AM4 M-ATX.png",
+        "vendedor": "Asus"
+    }
+]

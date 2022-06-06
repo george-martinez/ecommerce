@@ -1,0 +1,23 @@
+[
+    {
+        "id": "O1WQfehZRUMvwlhpk0CK8",
+        "imagen": "../img/ryzen5600g.jpg",
+        "precio": "29900",
+        "nombreProducto": "AMD Ryzen 5600g",
+        "vendedor": "AMD Store"
+    },
+    {
+        "id": "sjxNxn3mU3RFqIQ0BvXRM",
+        "imagen": "../img/ryzen5700g.png",
+        "precio": "46789",
+        "nombreProducto": "AMD Ryzen 5700g",
+        "vendedor": "AMD Store"
+    },
+    {
+        "id": "XL4xAU09YVbkTwOP-QEMX",
+        "imagen": "../img/ryzen5900x.jpg",
+        "precio": "67990",
+        "nombreProducto": "AMD Ryzen 5900x",
+        "vendedor": "AMD Store"
+    }
+]

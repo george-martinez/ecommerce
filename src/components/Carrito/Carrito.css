@@ -1,0 +1,29 @@
+.carrito-box {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+    background-color: rgb(62, 165, 160);
+    margin: 20px auto 0 auto;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.carrito-text {
+    width: 100%;
+    margin: 10px;
+    text-align: left;
+}
+
+.carrito-total-y-comprar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrito-productos{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}

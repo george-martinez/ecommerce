@@ -1,3 +1,13 @@
+body {
+  background: radial-gradient(96.89% 96.89% at 70.6% 12.78%, #646262 0%, #343636 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  width: 100vw;
+  height: 100vh;
+}
+
+*{
+  font-family: 'K2D', sans-serif;
+}
+
 .App {
   text-align: center;
 }

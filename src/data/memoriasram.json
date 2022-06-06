@@ -1,0 +1,23 @@
+[
+    {
+        "id": "zTTCOed-8Pbib_qLeTVNs",
+        "imagen": "../img/DDR4 4GB 2666MHZ OEM BULK.jpg",
+        "precio": "3149",
+        "nombreProducto": "DDR4 4GB 2666MHZ OEM BULK",
+        "vendedor": "Generico"
+    },
+    {
+        "id": "l1XAvkj5JMvknyBjyv6k3",
+        "imagen": "../img/DDR4 16GB 3600MHZ PATRIOT VIPER STEEL RGB CL20.jpg",
+        "precio": "13490",
+        "nombreProducto": "DDR4 16GB 3600MHZ PATRIOT VIPER STEEL RGB CL20",
+        "vendedor": "Patriot"
+    },
+    {
+        "id": "Ou5B0Y-4zaJWyuX6l-ztY",
+        "imagen": "../img/KINGSTON FURY RENEGADE 16GB 3200MHZ.png",
+        "precio": "14099",
+        "nombreProducto": "KINGSTON FURY RENEGADE 16GB 3200MHZ",
+        "vendedor": "Kingston"
+    }
+]

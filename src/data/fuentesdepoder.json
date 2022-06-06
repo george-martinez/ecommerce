@@ -1,0 +1,23 @@
+[
+    {
+        "id": "NGp9Ob-YcKqVamTxYy9ei",
+        "imagen": "../img/FUENTE 500W GENERICA.jpg",
+        "precio": "1699",
+        "nombreProducto": "FUENTE 500W GENERICA",
+        "vendedor": "Generico"
+    },
+    {
+        "id": "NMPvwlccVt3CQQmiDUyjr",
+        "imagen": "../img/CORSAIR 450W CV450 80+ BRONCE.png",
+        "precio": "7990",
+        "nombreProducto": "CORSAIR 450W CV450 80+ BRONCE",
+        "vendedor": "Corsair"
+    },
+    {
+        "id": "WbjH9hn5gNdT6cCy6o3qe",
+        "imagen": "../img/GIGABYTE 750W 80+ GOLD P750GM MODULAR.png",
+        "precio": "17490",
+        "nombreProducto": "GIGABYTE 750W 80+ GOLD P750GM MODULAR",
+        "vendedor": "Gigabyte"
+    }
+]

@@ -1,0 +1,52 @@
+.category-box {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+/* .category-section {
+    background-blend-mode: darken;
+    margin-top: 20px;
+} */
+/* 
+#root {
+    margin-bottom: 20px;
+}
+ */
+/*
+.category-boxes {
+    display: flex;
+    flex-direction: row;
+}
+ */
+
+ .MuiGrid-item{
+     padding: 0 !important;
+ }
+
+.category-box:hover {
+    background-color: rgb(112, 112, 241);
+    transform: scale(1.05);
+    color: white;
+}
+
+
+.category-img {
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+.category-img:hover{
+    opacity: 0.8;
+}
+
+.category-text {
+    margin: 8px 0 8px 0;
+    font-size: 16px;
+}
+
+a {
+    text-decoration:none;
+}
