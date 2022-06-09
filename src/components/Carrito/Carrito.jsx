@@ -2,7 +2,8 @@ import './Carrito.css'
 import CartContext from '../../context/CartContext'
 import { useContext } from 'react'
 import { ItemStructure } from '../ItemStructure/ItemStructure'
-import { Button } from '@mui/material'
+import { Button, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const Carrito = () => {
     const { cartItems } = useContext(CartContext)
@@ -15,9 +16,6 @@ const Carrito = () => {
         }
         uniqueIdArr.add(cartItems[i].id)
     }
-
-    console.log(uniqueIdArr)
-    console.log(uniqueArr)
 
     const sumaTotal = (cartItems = []) => {
         const arrPrecios = cartItems.map(cartItem => Number(cartItem.precio))
@@ -39,7 +37,9 @@ const Carrito = () => {
             </div>
             <div className='carrito-total-y-comprar'>
                 <h2 className='carrito-text'>Total: ${sumaTotal(cartItems)}</h2>
-                <Button variant="contained">Comprar</Button>
+                <Button variant="contained" color='success' disabled={sumaTotal(cartItems) <= 0}>
+                    <Link to={`/compra`}>Comprar</Link>
+                </Button>
             </div>
         </section>
     )

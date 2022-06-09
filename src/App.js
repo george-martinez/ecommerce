@@ -9,6 +9,8 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import CarouselCustom from './components/CarouselCustom/CarouselCustom'
 import Carrito from './components/Carrito/Carrito'
+import Purchase from './components/Purchase/Purchase'
+import Orders from './components/Orders/Orders'
 
 const theme = createTheme({
     mode: 'light',
@@ -44,6 +46,8 @@ function App() {
             <Route path='/categoria/:nombreCategoria' element={<CategoryDetails />} />
             <Route path='/productos' element={<Productos />} />
             <Route path='/carrito' element={<Carrito />} />
+            <Route path='/compra' element={<Purchase />} />
+            <Route path='/pedidos' element={<Orders />} />
             <Route path='/*' element={<h1>URL Invalida</h1>} />
           </Routes>
         </CartContextProvider>

@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import Button from '@mui/material/Button';
 import removeItem from '../../utils/removeObjectFromArrayById'
 
-const ItemStructure = ({dataItem}) => {
+const ItemStructure = ({dataItem, showButton = true}) => {
 
     const { cartItems, setCartItems } = useContext(CartContext)
 
@@ -24,8 +24,13 @@ const ItemStructure = ({dataItem}) => {
             <p className="listed-item__nombre">{dataItem.nombreProducto}</p>
             <p className="listed-item__vendedor">Vendido por: {dataItem.vendedor}</p>
             <div id='listed-item__buttons'>
-                <Button variant='outlined' id='listed-item__button' onClick={(event) => handleClick(event, dataItem)}>-</Button>
-                <Button variant='outlined' id='listed-item__button' onClick={(event) => handleClick(event, dataItem)}>+</Button>
+                {
+                    showButton &&
+                    <>
+                        <Button variant='outlined' id='listed-item__button' onClick={(event) => handleClick(event, dataItem)}>-</Button>
+                        <Button variant='outlined' id='listed-item__button' onClick={(event) => handleClick(event, dataItem)}>+</Button>
+                    </> 
+                }
             </div>
             <AgregadoAlCarrito dataItem={dataItem} cartItems={cartItems}/>
         </div>

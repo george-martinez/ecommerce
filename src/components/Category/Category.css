@@ -38,15 +38,12 @@
     object-fit: cover;
 }
 
-.category-img:hover{
-    opacity: 0.8;
-}
-
 .category-text {
     margin: 8px 0 8px 0;
     font-size: 16px;
+    color: #000;
 }
 
-a {
-    text-decoration:none;
+.category-text:hover {
+    text-decoration: underline;
 }

@@ -1,0 +1,27 @@
+.purchase-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    background-color: #1565c0af;
+    height: 400px;
+    max-width: 450px;
+    margin-top: 50px;
+    border-radius: 10px;
+    margin: 20px auto 0 auto;
+}
+
+.purchase-title {
+    margin-top: 20px;
+}
+
+.purchase-form-box {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input {
+    background-color: white !important;
+}

@@ -50,6 +50,7 @@ img {
     bottom: 0;
     width: 100%;
     background-color: aquamarine;
+    border-radius: 0px 0px 10px 10px;
 }
 
 #listed-item__buttons{

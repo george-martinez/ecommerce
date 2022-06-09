@@ -70,10 +70,13 @@ const ResponsiveAppBar = ({ username='default' }) => {
             </Typography>
           </Link>
           
+          {/* 
+            Mobile Hamburguer Menu
+          */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="Menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -101,36 +104,44 @@ const ResponsiveAppBar = ({ username='default' }) => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{<Link to={`/${page.toLowerCase()}`}>{page}</Link>}</Typography>
+                  <Link to={`/${page.toLowerCase()}`}>
+                    <Typography textAlign="center" sx={{color: 'black', '&:hover':{textDecoration: 'underline'}}}>
+                      {page}
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+          
+          {/* 
+            MOBILE - logo + brand
+          */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Avatar
+              alt="Logo TechShop"
+              src="/img/logo.png"
+              sx={{ display: {xs: 'flex', md: 'none'}, width: 30, height: 30, mr: 1 }}
+            />
+            <Link to={"/"}>
+              <Typography
+                variant="h5"
+                noWrap
+                sx={{
+                  mr: 2,
+                  display: { xs: 'flex', md: 'none' },
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'white',
+                  textDecoration: 'none',
+                }}
+              >
+                {pageName}
+              </Typography>
+            </Link>
+          </Box>
 
-          <Avatar
-            alt="Logo TechShop"
-            src="/img/logo.png"
-            sx={{ display: {xs: 'flex', md: 'none'}, width: 30, height: 30, mr: 1 }}
-          />
-
-          <Link to={"/"}>
-            <Typography
-              variant="h5"
-              noWrap
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'white',
-                textDecoration: 'none',
-              }}
-            >
-              {pageName}
-            </Typography>
-          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -138,7 +149,11 @@ const ResponsiveAppBar = ({ username='default' }) => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link to={`/${page.toLowerCase()}`}>{page}</Link>
+                <Link to={`/${page.toLowerCase()}`}>
+                  <Typography textAlign="center" sx={{color: 'white', fontFamily: 'K2D', fontSize: '1rem','&:hover':{textDecoration: 'underline'}}}>
+                    {page}
+                    </Typography>
+                </Link>
               </Button>
             ))}
           </Box>

@@ -1,0 +1,25 @@
+.orders-box { 
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100vw;
+    gap: 30px;
+    background-color: #1565c0af;
+    margin: 20px auto 0 auto;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.orders-box-detailed {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+.order-box-items-box {
+    display: flex;
+    gap: 5px;
+}

@@ -8,6 +8,10 @@ body {
   font-family: 'K2D', sans-serif;
 }
 
+a {
+  text-decoration:none;
+}
+
 .App {
   text-align: center;
 }
@@ -46,3 +50,4 @@ body {
     transform: rotate(360deg);
   }
 }
+
