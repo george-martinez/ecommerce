@@ -10,9 +10,9 @@ const Products = () => {
     
     return (
         <>
-            <h1 className='products-title'>Productos disponibles: </h1>
-            <div className="item-section"> 
-            {mergeArr.map(mergeItem => <ItemStructure key={mergeItem.id} dataItem={mergeItem} />)}
+            <h1 className='products-title'>LISTADO DE PRODUCTOS</h1>
+            <div className="products-section"> 
+                {mergeArr.map(mergeItem => <ItemStructure key={mergeItem.id} dataItem={mergeItem} />)}
             </div>
         </>
     )

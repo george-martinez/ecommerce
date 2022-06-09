@@ -2,8 +2,9 @@ import CartContext from '../../context/CartContext'
 import { useContext } from 'react'
 import Button from '@mui/material/Button';
 import removeItem from '../../utils/removeObjectFromArrayById'
+import './ItemStructure.css'
 
-const ItemStructure = ({dataItem, showButton = true}) => {
+const ItemStructure = ({dataItem, showButton = true, defaultHeight = '280px'}) => {
 
     const { cartItems, setCartItems } = useContext(CartContext)
 
@@ -18,7 +19,7 @@ const ItemStructure = ({dataItem, showButton = true}) => {
     }
 
     return(
-        <div className="listed-item" key={dataItem.id}>
+        <div className="listed-item" key={dataItem.id} style={{height: defaultHeight}}>
             <img src={dataItem.imagen} alt={'Imagen de presentacion de' + dataItem.nombreProducto}/>
             <p className="listed-item__price">${dataItem.precio}</p>
             <p className="listed-item__nombre">{dataItem.nombreProducto}</p>

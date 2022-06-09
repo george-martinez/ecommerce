@@ -1,15 +1,33 @@
+*{
+  font-family: 'K2D', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
 body {
   background: radial-gradient(96.89% 96.89% at 70.6% 12.78%, #646262 0%, #343636 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
 }
 
-*{
-  font-family: 'K2D', sans-serif;
+#content {
+  height: 100vh;
 }
 
 a {
   text-decoration:none;
+}
+
+img {
+  width: 100%;
+  height: 50%;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .App {
@@ -19,12 +37,6 @@ a {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -42,12 +54,4 @@ a {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 

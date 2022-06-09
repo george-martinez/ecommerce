@@ -1,4 +1,19 @@
+.products-section {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    background-color: #1565c0af;
+    margin: 20px 40px 0 20px;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
 .products-title { 
     display: block;
-    margin: 20px;
+    margin: 20px 0 20px 0;
+    background-color: white;
 }

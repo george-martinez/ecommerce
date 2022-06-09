@@ -11,20 +11,16 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CartContext from '../../context/CartContext'
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
 
 //const pages = ['Productos', 'Descuentos', 'Pedidos'];
 const pages = ['Productos', 'Pedidos', 'Carrito'];
-const settings = ['Cuenta'];
+const settings = ['Cuenta (En construccion)'];
 const pageName = 'TECHSHOP'
 
 const ResponsiveAppBar = ({ username='default' }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const { cartItems, setCartItems } = useContext(CartContext)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

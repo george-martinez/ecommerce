@@ -7,20 +7,39 @@ import { Link } from 'react-router-dom'
 import './Purchase.css'
 import { nanoid } from 'nanoid'
 
+
 const Purchase = () => {    
     const { cartItems, setCartItems } = useContext(CartContext)
 
-    const handleClick = () => {
-        let pedidosRealizados = JSON.parse(localStorage.getItem('miscompras'))
-        const numRecibo = nanoid()
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+        const { name, email, adress } = e.target
+        
+        if(cartItems.length > 0 && name && email && adress){
+            console.log(cartItems)
+            let pedidosRealizados = JSON.parse(localStorage.getItem('miscompras'))
+            const orderId = nanoid()
 
-        if(!pedidosRealizados){
-            pedidosRealizados = []
+            const orderData = {
+                date: Date.now(), 
+                orderId: orderId,
+                name: name.value,
+                email: email.value,
+                adress: adress.value
+            }
+    
+            if(!pedidosRealizados){
+                pedidosRealizados = []
+            }
+    
+            localStorage.setItem('miscompras', JSON.stringify([...pedidosRealizados,[...cartItems, orderData]]))
+            
+            for(let i = 0; i < e.target.length - 1; i++) {
+                e.target[i].value = ''
+            }
+            setCartItems([])
         }
-
-        localStorage.setItem('miscompras', JSON.stringify([...pedidosRealizados,[...cartItems, {'date': Date.now(), 'numRecibo': numRecibo}]]))
-
-        setCartItems([])
     }
 
     return (
@@ -31,14 +50,14 @@ const Purchase = () => {
                 sx={{
                     '& > :not(style)': { m: 1, width: '350px' },
                 }}
-                noValidate
-                autoComplete="off"
+                autoComplete="on"
                 className="purchase-form-box"
+                onSubmit={handleSubmit}
             >
-                <TextField id="filled-basic" label="Nombre" variant="filled" />
-                <TextField id="filled-basic" label="Correo Electronico" variant="filled" />
-                <TextField id="filled-basic" label="Direccion" variant="filled" />
-                <Button variant="contained" color="secondary" onClick={handleClick}>Finalizar compra</Button>
+                <TextField name="name" label="Nombre" variant="filled" required />
+                <TextField name="email" label="Correo Electronico" variant="filled" required />
+                <TextField name="adress" label="Direccion" variant="filled" required />
+                <Button type="submit" variant="contained" color="secondary">Finalizar compra</Button>
             </Box>
         </div>
     )

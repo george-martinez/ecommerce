@@ -1,0 +1,15 @@
+.whatsapp-icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: calc(100% - 45px);
+    left: calc(100% - 45px);
+    font-size: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #32b345;
+    width: 32px;
+    height: 32px;
+    z-index: 10000;
+}

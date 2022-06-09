@@ -11,6 +11,8 @@ import CarouselCustom from './components/CarouselCustom/CarouselCustom'
 import Carrito from './components/Carrito/Carrito'
 import Purchase from './components/Purchase/Purchase'
 import Orders from './components/Orders/Orders'
+import './Polyfills/mapCustom'
+import WhatsApp from './components/WhatsApp/WhatsApp';
 
 const theme = createTheme({
     mode: 'light',
@@ -42,7 +44,7 @@ function App() {
             <ResponsiveAppBar username='George'></ResponsiveAppBar>
           </ThemeProvider>
           <Routes>
-            <Route path='/' element={<div><CarouselCustom/><Category categoryBoxes={categoryBoxes} /></div>} />
+            <Route path='/' element={<section className='main-section'> <CarouselCustom/> <Category categoryBoxes={categoryBoxes} /> </section>} />
             <Route path='/categoria/:nombreCategoria' element={<CategoryDetails />} />
             <Route path='/productos' element={<Productos />} />
             <Route path='/carrito' element={<Carrito />} />
@@ -50,6 +52,7 @@ function App() {
             <Route path='/pedidos' element={<Orders />} />
             <Route path='/*' element={<h1>URL Invalida</h1>} />
           </Routes>
+          <WhatsApp />
         </CartContextProvider>
     </div>  
   )
