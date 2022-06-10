@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 
 const Carrito = () => {
     const { cartItems } = useContext(CartContext)
+    
     const uniqueIdArr = new Set()
     const uniqueArr = []
 
@@ -16,8 +17,6 @@ const Carrito = () => {
         }
         uniqueIdArr.add(cartItems[i].id)
     }
-
-    
 
     const sumaTotal = (cartItems = []) => {
         const arrPrecios = cartItems.map(cartItem => Number(cartItem.precio))

@@ -10,11 +10,13 @@ const ItemStructure = ({dataItem, showButton = true, defaultHeight = '280px'}) =
 
     const handleClick = (event, dataItem) => { 
         if(event.target.innerText === '+'){
-          setCartItems([...cartItems, {...dataItem}])
+            setCartItems([...cartItems, {...dataItem}])
+            localStorage.setItem('cart', JSON.stringify([...cartItems, {...dataItem}]))
         }
         if(event.target.innerText === '-'){
             const newCartItem = removeItem(cartItems, dataItem)
             setCartItems([...newCartItem])
+            localStorage.setItem('cart', JSON.stringify([...newCartItem]))
         }
     }
 

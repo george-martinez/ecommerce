@@ -2,10 +2,20 @@ import { ItemStructure } from "../ItemStructure/ItemStructure"
 import { nanoid } from 'nanoid'
 import './Orders.css'
 
+const sumaTotal = (itemArr = []) => {
+    const arrPrecios = itemArr.mapCustom(item => Number(item.precio))
+    const initialValue = 0;
+    const sumWithInitial = arrPrecios.reduce(
+        (previousValue, currentValue) => (previousValue + currentValue), initialValue
+    );
+    console.log(arrPrecios)
+    return sumWithInitial
+}
+
 const OrderLister = ({orders}) => {
     return(
-        orders.map((orderArr, index) => {
-            const orderData = orderArr[orderArr.length - 1]
+        orders.map((itemArr, index, ordersMap) => {
+            const orderData = itemArr[itemArr.length - 1]
             return(
                 <div key={orderData.date} className="order-box-detailed">
                     <h2>{`Orden: ${index + 1}`}</h2>
@@ -13,12 +23,13 @@ const OrderLister = ({orders}) => {
                     <h6 className='order-text-info'>{`Nombre del comprador: ${orderData.name}`}</h6>
                     <h6 className='order-text-info'>{`Email del comprador: ${orderData.email}`}</h6>
                     <h6 className='order-text-info'>{`ID del pedido: ${orderData.orderId}`}</h6>
+                    <h5 className="order-text-info">{`Total: $${sumaTotal(ordersMap[index])}`}</h5>
                     <div className="order-box-items-box">
-                        {orderArr.mapCustom(order => {
+                        {itemArr.mapCustom(item => {
                             return(
                                 <ItemStructure 
                                     key={nanoid()} 
-                                    dataItem={order} 
+                                    dataItem={item} 
                                     showButton={false} 
                                     defaultHeight={'fit-content'}
                                 />
@@ -45,3 +56,4 @@ const Orders = () => {
 }
 
 export default Orders
+
