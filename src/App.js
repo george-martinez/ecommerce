@@ -13,6 +13,7 @@ import Cart from './components/Cart/Cart'
 import Purchase from './components/Purchase/Purchase'
 import Orders from './components/Orders/Orders'
 import WhatsApp from './components/WhatsApp/WhatsApp';
+import OrderCompleted from './components/OrderCompleted/OrderCompleted'
 
 const theme = createTheme({
     mode: 'light',
@@ -50,6 +51,7 @@ function App() {
             <Route path='/carrito' element={<Cart />} />
             <Route path='/compra' element={<Purchase />} />
             <Route path='/pedidos' element={<Orders />} />
+            <Route path='/ordercompleted' element={<OrderCompleted />} />
             <Route path='/*' element={<h1>URL Invalida</h1>} />
           </Routes>
           <WhatsApp />

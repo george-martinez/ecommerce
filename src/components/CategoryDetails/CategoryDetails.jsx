@@ -11,7 +11,7 @@ const CategoryDetails = () => {
     const {nombreCategoria} = useParams()
     
     /* 
-    Todo esto puede ser reemplazado por un fetch, haciendo que la data sea dinamica dependiendo del URL
+        Todo esto puede ser reemplazado por un fetch, haciendo que la informacion sea dinamica dependiendo del URL
     */
     let data = {};
 
@@ -43,10 +43,3 @@ const CategoryDetails = () => {
 }
 
 export default CategoryDetails;
-
-/* 
-CONTADOR CARRITO: 
-<ul>
-    {cartItems.map((cartItem) => <li key={nanoid()}>{cartItem.nombreProducto}</li>)}
-</ul> 
-*/

@@ -1,7 +1,7 @@
 import Carousel from 'react-material-ui-carousel'
 import Home from '@mui/icons-material/Home';
 import CircleIcon from '@mui/icons-material/Circle';
-import { Paper, Button } from '@mui/material'
+import { Paper } from '@mui/material'
 import './CarouselCustom.css'
 
 const CarouselCustom = () => {

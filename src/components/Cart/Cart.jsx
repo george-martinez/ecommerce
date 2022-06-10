@@ -2,7 +2,7 @@ import './Cart.css'
 import CartContext from '../../context/CartContext'
 import { useContext } from 'react'
 import { ItemStructure } from '../ItemStructure/ItemStructure'
-import { Button, Typography } from '@mui/material'
+import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 const Carrito = () => {

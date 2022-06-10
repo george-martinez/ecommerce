@@ -1,0 +1,27 @@
+.orders-completed-box { 
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 100vw;
+    gap: 30px;
+    background-color: #7ffc6f;
+    margin: 20px auto 0 auto;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.orders-completed-title {
+    display: block;
+    margin: 20px 0 20px 0;
+    background-color: white;
+    text-decoration: underline;
+}
+
+.order-completed-text-info {
+    margin-bottom: 5px;
+    display: block;
+    color: rgb(0, 0, 0);
+}

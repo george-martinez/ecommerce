@@ -9,7 +9,7 @@
 }
 
 body {
-  background: radial-gradient(96.89% 96.89% at 70.6% 12.78%, #646262 0%, #343636 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  background: radial-gradient(96.89% 96.89% at 70.6% 12.78%, #646262 0%, #343636 100%);
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;

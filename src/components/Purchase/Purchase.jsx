@@ -6,10 +6,12 @@ import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom'
 import './Purchase.css'
 import { nanoid } from 'nanoid'
+import { useState } from "react";
 
 
 const Purchase = () => {    
     const { cartItems, setCartItems } = useContext(CartContext)
+    const [ buyButtonEnabled, setBuyButtonEnabled ] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -41,6 +43,14 @@ const Purchase = () => {
         }
     }
 
+    const handleDisabled = () => {
+        const nombre = document.getElementById('nameField').value
+        const email = document.getElementById('emailField').value
+        const adress = document.getElementById('adressField').value
+        const bool = nombre && email && adress
+        setBuyButtonEnabled(bool)
+    }
+
     return (
         <div className="purchase-box">
             <h1 className="purchase-title">FINALICE SU COMPRA</h1>
@@ -53,10 +63,10 @@ const Purchase = () => {
                 className="purchase-form-box"
                 onSubmit={handleSubmit}
             >
-                <TextField name="name" label="Nombre" variant="filled" required />
-                <TextField name="email" label="Correo Electronico" variant="filled" required />
-                <TextField name="adress" label="Direccion" variant="filled" required />
-                <Button type="submit" variant="contained" color="secondary">Finalizar compra</Button>
+                <TextField id="nameField" name="name" label="Nombre" variant="filled" required onChange={handleDisabled} />
+                <TextField id="emailField" name="email" label="Correo Electronico" variant="filled" required onChange={handleDisabled} />
+                <TextField id="adressField" name="adress" label="Direccion" variant="filled" required onChange={handleDisabled} />
+                <Button type="submit" variant="contained" color="secondary" disabled={!Boolean(buyButtonEnabled)}><Link to={'/ordercompleted'}>Finalizar compra</Link></Button>
             </Box>
         </div>
     )

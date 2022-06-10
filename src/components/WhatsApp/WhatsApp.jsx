@@ -1,9 +1,4 @@
 import WhatsAppIcon from "@mui/icons-material/WhatsApp"
-import WhatsappOutlinedIcon from '@mui/icons-material/WhatsappOutlined'
-import WhatsappRoundedIcon from '@mui/icons-material/WhatsappRounded'
-import WhatsappTwoToneIcon from '@mui/icons-material/WhatsappTwoTone';
-import WhatsappSharpIcon from '@mui/icons-material/WhatsappSharp'
-import { Button } from "@mui/material";
 import './WhatsApp.css'
 
 const storePhoneNumber = '541126507716' /* Include country code */
@@ -25,14 +20,3 @@ const WhatsApp = () => {
 }
 
 export default WhatsApp
-
-/* 
-    bottom: 10px;
-    right: 10px;
-    margin-right: -100vw;
-    
-    background-color: #fff;
-    border-radius: 50%;
-    color: #32b345;
-    width: 200px;
-*/
