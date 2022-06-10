@@ -3,7 +3,7 @@ import CartContext from '../../context/CartContext'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { Link } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import './Purchase.css'
 import { nanoid } from 'nanoid'
 import { useState } from "react";
@@ -11,15 +11,18 @@ import { useState } from "react";
 
 const Purchase = () => {    
     const { cartItems, setCartItems } = useContext(CartContext)
+    const [ buyDone, setBuyDone ] = useState(false)
     const [ buyButtonEnabled, setBuyButtonEnabled ] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
         
         const { name, email, adress } = e.target
+
+        console.log('dentro fuera if')
         
         if(cartItems.length > 0 && name && email && adress){
-            let pedidosRealizados = JSON.parse(localStorage.getItem('miscompras'))
+            let allOrders = JSON.parse(localStorage.getItem('miscompras'))
             const orderId = nanoid()
 
             const orderData = {
@@ -30,16 +33,19 @@ const Purchase = () => {
                 adress: adress.value
             }
     
-            if(!pedidosRealizados){
-                pedidosRealizados = []
+            if(allOrders === null){
+                allOrders = []
             }
     
-            localStorage.setItem('miscompras', JSON.stringify([...pedidosRealizados,[...cartItems, orderData]]))
+            localStorage.setItem('miscompras', JSON.stringify([...allOrders, [...cartItems, orderData]]))
             
             for(let i = 0; i < e.target.length - 1; i++) {
                 e.target[i].value = ''
             }
+
+            console.log('dentro de if')
             setCartItems([])
+            setBuyDone(true)
         }
     }
 
@@ -66,7 +72,8 @@ const Purchase = () => {
                 <TextField id="nameField" name="name" label="Nombre" variant="filled" required onChange={handleDisabled} />
                 <TextField id="emailField" name="email" label="Correo Electronico" variant="filled" required onChange={handleDisabled} />
                 <TextField id="adressField" name="adress" label="Direccion" variant="filled" required onChange={handleDisabled} />
-                <Button type="submit" variant="contained" color="secondary" disabled={!Boolean(buyButtonEnabled)}><Link to={'/ordercompleted'}>Finalizar compra</Link></Button>
+                <Button type="submit" variant="contained" color="secondary" disabled={!Boolean(buyButtonEnabled)}>Finalizar compra</Button>
+                {buyDone ? <Navigate to={'/ordercompleted'} /> : <></>}
             </Box>
         </div>
     )
