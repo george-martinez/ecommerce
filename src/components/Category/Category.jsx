@@ -13,27 +13,6 @@ function Category(props) {
 
   const { cartItems, setCartItems } = useContext(CartContext)
 
-  /*     function bigImg(e) {
-      if(e.target.className === 'category-img'){
-        e.target.animate([
-          { transform: 'translateY(0)' },
-          { transform: 'translateY(-20px)' },
-        ], {
-            duration: 800,
-            iterations: 1,
-            easing: 'linear',
-        });
-      }
-      console.log(e)
-    } */
-/* 
-    const handleClick = (children, props) => { 
-      if(children.target.innerText === '+'){
-        setCartItems([...cartItems, {}])
-      }
-      console.log(props)
-    } */
-
     const style = {
         width: Number(`${props?.boxWidth ? props.boxWidth : boxWidthDefault}`),
         height: Number(`${props?.boxHeight ? props.boxHeight : boxHeightDefault}`)

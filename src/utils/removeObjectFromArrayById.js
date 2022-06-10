@@ -17,8 +17,6 @@ function removeObjectFromArrayById ( arr = [], objectToDelete ) {
     if ( indexOfObjectToDelete !== -1 ) {
         arrCopy.splice( indexOfObjectToDelete, 1 );
     }
-
-    console.log(arrCopy)
     
     return arrCopy
 }

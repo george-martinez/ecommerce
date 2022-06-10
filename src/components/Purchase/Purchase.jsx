@@ -17,7 +17,6 @@ const Purchase = () => {
         const { name, email, adress } = e.target
         
         if(cartItems.length > 0 && name && email && adress){
-            console.log(cartItems)
             let pedidosRealizados = JSON.parse(localStorage.getItem('miscompras'))
             const orderId = nanoid()
 
