@@ -6,22 +6,6 @@
     text-align: center;
 }
 
-/* .category-section {
-    background-blend-mode: darken;
-    margin-top: 20px;
-} */
-/* 
-#root {
-    margin-bottom: 20px;
-}
- */
-/*
-.category-boxes {
-    display: flex;
-    flex-direction: row;
-}
- */
-
  .MuiGrid-item{
      padding: 0 !important;
  }

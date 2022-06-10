@@ -1,17 +1,17 @@
 import './App.css';
-import Category from "./components/Category/Category"
-import CategoryDetails from "./components/CategoryDetails/CategoryDetails"
-import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar'
+import './Polyfills/mapCustom'
 import { Routes, Route } from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext';
-import Productos from './components/Products/Products'
-import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
+import { createTheme } from '@mui/material/styles';
+import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar'
 import CarouselCustom from './components/CarouselCustom/CarouselCustom'
-import Carrito from './components/Carrito/Carrito'
+import Category from "./components/Category/Category"
+import CategoryDetails from "./components/CategoryDetails/CategoryDetails"
+import Products from './components/Products/Products'
+import Cart from './components/Cart/Cart'
 import Purchase from './components/Purchase/Purchase'
 import Orders from './components/Orders/Orders'
-import './Polyfills/mapCustom'
 import WhatsApp from './components/WhatsApp/WhatsApp';
 
 const theme = createTheme({
@@ -46,8 +46,8 @@ function App() {
           <Routes>
             <Route path='/' element={<section className='main-section'> <CarouselCustom/> <Category categoryBoxes={categoryBoxes} /> </section>} />
             <Route path='/categoria/:nombreCategoria' element={<CategoryDetails />} />
-            <Route path='/productos' element={<Productos />} />
-            <Route path='/carrito' element={<Carrito />} />
+            <Route path='/productos' element={<Products />} />
+            <Route path='/carrito' element={<Cart />} />
             <Route path='/compra' element={<Purchase />} />
             <Route path='/pedidos' element={<Orders />} />
             <Route path='/*' element={<h1>URL Invalida</h1>} />

@@ -1,4 +1,4 @@
-import './Carrito.css'
+import './Cart.css'
 import CartContext from '../../context/CartContext'
 import { useContext } from 'react'
 import { ItemStructure } from '../ItemStructure/ItemStructure'
@@ -17,11 +17,14 @@ const Carrito = () => {
         uniqueIdArr.add(cartItems[i].id)
     }
 
+    
+
     const sumaTotal = (cartItems = []) => {
         const arrPrecios = cartItems.map(cartItem => Number(cartItem.precio))
         const initialValue = 0;
         const sumWithInitial = arrPrecios.reduce(
-        (previousValue, currentValue) => (previousValue + currentValue), initialValue);
+            (previousValue, currentValue) => (previousValue + currentValue), initialValue
+        );
         return sumWithInitial
     }
 
