@@ -1,5 +1,6 @@
 import { ItemStructure } from "../ItemStructure/ItemStructure"
 import { nanoid } from 'nanoid'
+import '../../Polyfills/mapCustomReverse'
 import './Orders.css'
 
 const sumaTotal = (itemArr = []) => {
@@ -8,13 +9,12 @@ const sumaTotal = (itemArr = []) => {
     const sumWithInitial = arrPrecios.reduce(
         (previousValue, currentValue) => (previousValue + currentValue), initialValue
     );
-    console.log(arrPrecios)
     return sumWithInitial
 }
 
 const OrderLister = ({orders}) => {
     return(
-        orders.map((itemArr, index, ordersMap) => {
+        orders.mapCustomReverse((itemArr, index, ordersMap) => {
             const orderData = itemArr[itemArr.length - 1]
             return(
                 <div key={orderData.date} className="order-box-detailed">

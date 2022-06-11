@@ -12,11 +12,12 @@ body {
   background: radial-gradient(96.89% 96.89% at 70.6% 12.78%, #646262 0%, #343636 100%);
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
 }
 
 #content {
   height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 a {

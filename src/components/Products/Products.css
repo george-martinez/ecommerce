@@ -3,13 +3,15 @@
     flex-flow: row wrap;
     gap: 10px;
     background-color: #1565c0af;
-    margin: 20px 40px 0 20px;
+    margin: 20px auto 0 auto;
     width: fit-content;
+    max-width: 80%;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid black;
     box-sizing: border-box;
     justify-content: center;
+    align-content: center;
 }
 
 .products-title { 

@@ -4,9 +4,16 @@ import { useContext } from 'react'
 import { ItemStructure } from '../ItemStructure/ItemStructure'
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
+import useElementOnScreen from '../../hooks/useElementOnScreen'
+import {Box} from '@mui/material'
 
 const Carrito = () => {
     const { cartItems } = useContext(CartContext)
+    const [ containerRef, isVisible ] = useElementOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 1.0
+    })
     
     const uniqueIdArr = new Set()
     const uniqueArr = []
@@ -37,7 +44,9 @@ const Carrito = () => {
                     )
                 })}
             </div>
-            <div className='carrito-total-y-comprar'>
+            
+            <Box ref={containerRef} sx={{width: 0}}/>
+            <div className={isVisible ? 'carrito-total-y-comprar' : 'carrito-total-y-comprar-fixed'}>
                 <h2 className='carrito-text'>Total: ${sumaTotal(cartItems)}</h2>
                 <Button variant="contained" color='success' disabled={sumaTotal(cartItems) <= 0}>
                     <Link to={`/compra`}>Comprar</Link>

@@ -2,11 +2,13 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 100vw;
+    width: fit-content;
+    max-width: 80%;
     gap: 30px;
     background-color: #1565c0af;
-    margin: 20px auto 0 auto;
-    width: fit-content;
+    margin: 20px auto 20px auto;
+    max-height: 100vh;
+    overflow-y: scroll;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid black;
@@ -21,12 +23,16 @@
     padding: 10px;
     border-radius: 10px;
     text-align: center; 
-    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.75);   
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.75);
+    height: fit-content;
+    max-width: 100%;
 }
 
 .order-box-items-box {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
+    justify-content: center;
 }
 
 .orders-title {

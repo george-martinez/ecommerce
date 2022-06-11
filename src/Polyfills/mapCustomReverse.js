@@ -1,9 +1,9 @@
 /*eslint-disable */
-    /* Maps an Array excluding last position */
-    Array.prototype.mapCustom = function (callback) {
+    /* Maps an Array from last position to first position */
+    Array.prototype.mapCustomReverse = function (callback) {
         let arr = []
 
-        for (let i = 0; i < this.length - 1; i++) {
+        for (let i = (this.length - 1); i >= 0; i--) {
             arr.push(callback(this[i], i, this)) // pushing currentValue, index, array
         }
         

@@ -18,8 +18,6 @@ const Purchase = () => {
         e.preventDefault()
         
         const { name, email, adress } = e.target
-
-        console.log('dentro fuera if')
         
         if(cartItems.length > 0 && name && email && adress){
             let allOrders = JSON.parse(localStorage.getItem('miscompras'))
@@ -43,8 +41,9 @@ const Purchase = () => {
                 e.target[i].value = ''
             }
 
-            console.log('dentro de if')
             setCartItems([])
+            localStorage.removeItem('cart')
+            
             setBuyDone(true)
         }
     }
