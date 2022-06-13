@@ -99,13 +99,13 @@ const ResponsiveAppBar = ({ username='default' }) => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link to={`/${page.toLowerCase()}`}>
-                    <Typography textAlign="center" sx={{color: 'black', '&:hover':{textDecoration: 'underline'}}}>
-                      {page}
-                    </Typography>
-                  </Link>
-                </MenuItem>
+                <Link to={`/${page.toLowerCase()}`}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center" sx={{color: 'black', '&:hover':{textDecoration: 'underline'}}}>
+                        {page}
+                      </Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -140,17 +140,17 @@ const ResponsiveAppBar = ({ username='default' }) => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <Link to={`/${page.toLowerCase()}`}>
-                  <Typography textAlign="center" sx={{color: 'white', fontFamily: 'K2D', fontSize: '1rem','&:hover':{textDecoration: 'underline'}}}>
-                    {page}
-                    </Typography>
-                </Link>
-              </Button>
+              <Link to={`/${page.toLowerCase()}`}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                    <Typography textAlign="center" sx={{color: 'white', fontFamily: 'K2D', fontSize: '1rem','&:hover':{textDecoration: 'underline'}}}>
+                      {page}
+                      </Typography>
+                </Button>
+              </Link>
             ))}
           </Box>
             

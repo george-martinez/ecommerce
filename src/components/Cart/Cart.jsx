@@ -48,9 +48,11 @@ const Carrito = () => {
             <Box ref={containerRef} sx={{width: 0}}/>
             <div className={isVisible ? 'carrito-total-y-comprar' : 'carrito-total-y-comprar-fixed'}>
                 <h2 className='carrito-text'>Total: ${sumaTotal(cartItems)}</h2>
-                <Button variant="contained" color='success' disabled={sumaTotal(cartItems) <= 0}>
-                    <Link to={`/compra`}>Comprar</Link>
-                </Button>
+                <Link to={`/compra`}>
+                    <Button variant="contained" color='success' disabled={sumaTotal(cartItems) <= 0}>
+                        Comprar
+                    </Button>
+                </Link>
             </div>
         </section>
     )

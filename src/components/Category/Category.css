@@ -19,7 +19,7 @@
 
 .category-img {
     border-radius: 10px 10px 0 0;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 .category-text {
@@ -35,4 +35,8 @@
 
 .category-text:hover {
     text-decoration: underline;
+}
+
+.anchorstyle {
+    width: 100%;
 }
