@@ -1,9 +1,10 @@
-import './App.css';
+import './App.css'
 import './Polyfills/mapCustom'
 import { Routes, Route } from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext';
-import { ThemeProvider } from '@emotion/react';
-import { createTheme } from '@mui/material/styles';
+import { AuthContextProvider } from './context/AuthContext';
+import { ThemeProvider } from '@emotion/react'
+import { createTheme } from '@mui/material/styles'
 import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar'
 import CarouselCustom from './components/CarouselCustom/CarouselCustom'
 import Category from "./components/Category/Category"
@@ -12,8 +13,12 @@ import Products from './components/Products/Products'
 import Cart from './components/Cart/Cart'
 import Purchase from './components/Purchase/Purchase'
 import Orders from './components/Orders/Orders'
-import WhatsApp from './components/WhatsApp/WhatsApp';
+import WhatsApp from './components/WhatsApp/WhatsApp'
 import OrderCompleted from './components/OrderCompleted/OrderCompleted'
+import { Home } from './components/Auth/Home'
+import { Register } from './components/Auth/Register'
+import { Login } from './components/Auth/Login';
+import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 
 const theme = createTheme({
     mode: 'light',
@@ -40,22 +45,27 @@ function App() {
 
   return(
     <div id='content'>
-      <CartContextProvider>
-          <ThemeProvider theme={theme}>
-            <ResponsiveAppBar username='George'></ResponsiveAppBar>
-          </ThemeProvider>
-          <Routes>
-            <Route path='/' element={<section className='main-section'> <CarouselCustom/> <Category categoryBoxes={categoryBoxes} /> </section>} />
-            <Route path='/categoria/:nombreCategoria' element={<CategoryDetails />} />
-            <Route path='/productos' element={<Products />} />
-            <Route path='/carrito' element={<Cart />} />
-            <Route path='/compra' element={<Purchase />} />
-            <Route path='/pedidos' element={<Orders />} />
-            <Route path='/ordercompleted' element={<OrderCompleted />} />
-            <Route path='/*' element={<h1>URL Invalida</h1>} />
-          </Routes>
-          <WhatsApp />
-        </CartContextProvider>
+      <AuthContextProvider>
+        <CartContextProvider>
+            <ThemeProvider theme={theme}>
+              <ResponsiveAppBar username='George'></ResponsiveAppBar>
+            </ThemeProvider>
+            <Routes>
+              <Route path='/' element={<section className='main-section'> <CarouselCustom/> <Category categoryBoxes={categoryBoxes} /> </section>} />
+              <Route path='/categoria/:nombreCategoria' element={<CategoryDetails />} />
+              <Route path='/productos' element={<Products />} />
+              <Route path='/carrito' element={<ProtectedRoute> <Cart /> </ProtectedRoute>} />
+              <Route path='/compra' element={<ProtectedRoute> <Purchase /> </ProtectedRoute>} />
+              <Route path='/pedidos' element={<ProtectedRoute> <Orders /> </ProtectedRoute>} />
+              <Route path='/ordercompleted' element={<ProtectedRoute> <OrderCompleted /> </ProtectedRoute>} />
+              <Route path='/home' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/*' element={<h1>URL Invalida</h1>} />
+            </Routes>
+            <WhatsApp />
+          </CartContextProvider>
+        </AuthContextProvider>
     </div>  
   )
 }

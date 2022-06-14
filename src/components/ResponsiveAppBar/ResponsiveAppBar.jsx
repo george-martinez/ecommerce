@@ -99,8 +99,8 @@ const ResponsiveAppBar = ({ username='default' }) => {
               }}
             >
               {pages.map((page) => (
-                <Link to={`/${page.toLowerCase()}`}>
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <Link to={`/${page.toLowerCase()}`} key={page}>
+                  <MenuItem onClick={handleCloseNavMenu}>
                       <Typography textAlign="center" sx={{color: 'black', '&:hover':{textDecoration: 'underline'}}}>
                         {page}
                       </Typography>
@@ -140,9 +140,8 @@ const ResponsiveAppBar = ({ username='default' }) => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={`/${page.toLowerCase()}`}>
+              <Link to={`/${page.toLowerCase()}`} key={page}>
                 <Button
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >

@@ -20,19 +20,20 @@ const Purchase = () => {
         const { name, email, adress } = e.target
         
         if(cartItems.length > 0 && name && email && adress){
-            let allOrders = JSON.parse(localStorage.getItem('miscompras'))
             const orderId = nanoid()
-
+            
+            let allOrders = JSON.parse(localStorage.getItem('miscompras'))
+            
+            if(allOrders === null){
+                allOrders = []
+            }
+            
             const orderData = {
                 date: Date.now(), 
                 orderId: orderId,
                 name: name.value,
                 email: email.value,
                 adress: adress.value
-            }
-    
-            if(allOrders === null){
-                allOrders = []
             }
     
             localStorage.setItem('miscompras', JSON.stringify([...allOrders, [...cartItems, orderData]]))
@@ -48,7 +49,7 @@ const Purchase = () => {
         }
     }
 
-    const handleDisabled = () => {
+    const handleEnabled = () => {
         const nombre = document.getElementById('nameField').value
         const email = document.getElementById('emailField').value
         const adress = document.getElementById('adressField').value
@@ -57,25 +58,27 @@ const Purchase = () => {
     }
 
     return (
-        <div className="purchase-box">
-            <h1 className="purchase-title">FINALICE SU COMPRA</h1>
-            <Box
-                component="form"
-                sx={{
-                    '& > :not(style)': { m: 1, width: '350px' },
-                }}
-                autoComplete="on"
-                className="purchase-form-box"
-                onSubmit={handleSubmit}
-            >
-                <TextField id="nameField" name="name" label="Nombre" variant="filled" required onChange={handleDisabled} />
-                <TextField id="emailField" name="email" label="Correo Electronico" variant="filled" required onChange={handleDisabled} />
-                <TextField id="adressField" name="adress" label="Direccion" variant="filled" required onChange={handleDisabled} />
-                <Button type="submit" variant="contained" color="secondary" disabled={!Boolean(buyButtonEnabled)}>Finalizar compra</Button>
-                {buyDone ? <Navigate to={'/ordercompleted'} /> : <></>}
-            </Box>
-        </div>
-    )
+        <>
+            <h1 className="purchase-title">POR FAVOR REGISTRESE / LOGUEESE PARA FINALIZAR SU COMPRA</h1>
+            <div className="purchase-box">
+                <Box
+                    component="form"
+                    sx={{
+                        '& > :not(style)': { m: 1, width: '350px' },
+                    }}
+                    autoComplete="on"
+                    className="purchase-form-box"
+                    onSubmit={handleSubmit}
+                >
+                    <TextField id="nameField" name="name" label="Nombre" variant="filled" required onChange={handleEnabled} />
+                    <TextField id="emailField" name="email" label="Correo Electronico" variant="filled" required onChange={handleEnabled} />
+                    <TextField id="adressField" name="adress" label="Direccion" variant="filled" required onChange={handleEnabled} />
+                    <Button type="submit" variant="contained" color="secondary" disabled={!Boolean(buyButtonEnabled)}>Finalizar compra</Button>
+                    {buyDone ? <Navigate to={'/ordercompleted'} /> : <></>}
+                </Box>
+            </div>
+        </>
+        )
 }
 
 export default Purchase
