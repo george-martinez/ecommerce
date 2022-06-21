@@ -1,10 +1,10 @@
 import './App.css'
 import './Polyfills/mapCustom'
+import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
 import { Routes, Route } from 'react-router-dom'
 import { CartContextProvider } from './context/CartContext';
 import { AuthContextProvider } from './context/AuthContext';
-import { ThemeProvider } from '@emotion/react'
-import { createTheme } from '@mui/material/styles'
+import { Login } from './components/Auth/Login';
 import ResponsiveAppBar from './components/ResponsiveAppBar/ResponsiveAppBar'
 import CarouselCustom from './components/CarouselCustom/CarouselCustom'
 import Category from "./components/Category/Category"
@@ -15,10 +15,8 @@ import Purchase from './components/Purchase/Purchase'
 import Orders from './components/Orders/Orders'
 import WhatsApp from './components/WhatsApp/WhatsApp'
 import OrderCompleted from './components/OrderCompleted/OrderCompleted'
-import { Home } from './components/Auth/Home'
-import { Register } from './components/Auth/Register'
-import { Login } from './components/Auth/Login';
-import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute';
+import { ThemeProvider } from '@emotion/react'
+import { createTheme } from '@mui/material/styles'
 
 const theme = createTheme({
     mode: 'light',
@@ -48,7 +46,7 @@ function App() {
       <AuthContextProvider>
         <CartContextProvider>
             <ThemeProvider theme={theme}>
-              <ResponsiveAppBar username='George'></ResponsiveAppBar>
+              <ResponsiveAppBar></ResponsiveAppBar>
             </ThemeProvider>
             <Routes>
               <Route path='/' element={<section className='main-section'> <CarouselCustom/> <Category categoryBoxes={categoryBoxes} /> </section>} />
@@ -58,8 +56,6 @@ function App() {
               <Route path='/compra' element={<ProtectedRoute> <Purchase /> </ProtectedRoute>} />
               <Route path='/pedidos' element={<ProtectedRoute> <Orders /> </ProtectedRoute>} />
               <Route path='/ordercompleted' element={<ProtectedRoute> <OrderCompleted /> </ProtectedRoute>} />
-              <Route path='/home' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
-              <Route path='/register' element={<Register />} />
               <Route path='/login' element={<Login />} />
               <Route path='/*' element={<h1>URL Invalida</h1>} />
             </Routes>

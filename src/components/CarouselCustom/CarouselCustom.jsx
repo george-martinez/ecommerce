@@ -22,49 +22,41 @@ const CarouselCustom = () => {
             description: "Las fuentes de poder mas confiables!",
             imgUrl: "/img/carousel/3.webp"
         }
-      ]
+    ]
     
-      function Item(props)
-      {
-          return (
-              <>
-                <Paper>
-                  <h2>{props.item.name}</h2>
-                  <p>{props.item.description}</p>
-                </Paper>
-                <div className='carousel-img-text-box'>
-                    <img src={props.item.imgUrl} alt='logo' style={{height:'350px', objectFit:'cover'}}></img>
-                </div>
-              </>
-          )
-      }
-    
-      const indicator = [<Home/>, <CircleIcon/>, <CircleIcon/>]
-
-
-      return (
-        <div className='carousel-box'>
-            <Carousel 
-            IndicatorIcon={indicator}
-            indicatorIconButtonProps={{style:{color: 'black'}}}
-            activeIndicatorIconButtonProps={{style:{color: 'white'}}}
-            >
-                {
-                    items.map( (item, i) => <Item key={i} item={item} /> )
-                }
-            </Carousel>
-            <h1 className='categorias-text'>CATEGORIAS</h1>
-        </div>
-      )
+    function Item(props)
+    {
+        return (
+            <>
+            <Paper>
+                <h2>{props.item.name}</h2>
+                <p>{props.item.description}</p>
+            </Paper>
+            <div className='carousel-img-text-box'>
+                <img src={props.item.imgUrl} alt='logo' style={{height:'350px', objectFit:'cover'}}></img>
+            </div>
+            </>
+        )
     }
+
+    const indicator = [<Home/>, <CircleIcon/>, <CircleIcon/>]
+
+
+    return (
+    <div className='carousel-box'>
+        <Carousel 
+        IndicatorIcon={indicator}
+        indicatorIconButtonProps={{style:{color: 'black'}}}
+        activeIndicatorIconButtonProps={{style:{color: 'white'}}}
+        >
+            {
+                items.map( (item, i) => <Item key={i} item={item} /> )
+            }
+        </Carousel>
+        <h1 className='categorias-text'>CATEGORIAS</h1>
+    </div>
+    )
+}
     
-    //<h1>CATEGORIAS</h1>
-
-
-
-
-
-
-
 
 export default CarouselCustom

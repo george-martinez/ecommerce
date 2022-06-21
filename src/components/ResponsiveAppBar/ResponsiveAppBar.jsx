@@ -12,15 +12,21 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom'
+import { useAuthContext } from "../../context/AuthContext"
 
-//const pages = ['Productos', 'Descuentos', 'Pedidos'];
 const pages = ['Productos', 'Pedidos', 'Carrito'];
 const settings = ['Cuenta (En construccion)'];
 const pageName = 'TECHSHOP'
 
-const ResponsiveAppBar = ({ username='default' }) => {
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const { user, logout } = useAuthContext()
+
+  const handleLogout = async () => {
+      await logout()
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -157,7 +163,7 @@ const ResponsiveAppBar = ({ username='default' }) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={username} src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user ? user.email.toUpperCase() : null} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -181,6 +187,11 @@ const ResponsiveAppBar = ({ username='default' }) => {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
+              {user ? 
+                <MenuItem onClick={handleLogout}>
+                  <Typography textAlign="center">Cerrar sesion</Typography>
+                </MenuItem> : null
+              }
             </Menu>
           </Box>
         </Toolbar>
