@@ -1,3 +1,12 @@
+# Eccommerce con React
+
+El proyecto fue realizado con React para una reutilizacion mas optima de los componentes, asi como para tener estados globales que faciliten la obtencion y actualizacion de ciertos datos, como el carrito o el usuario.
+
+Las funcionalidades del sitio te permiten anadir x cantidad del producto que quieras al carrito, y luego al comprarlo se genera un pedido con un numero de orden. Por ahora todo lo anterior se encuentra en local storage, se espera en un futuro migrarlo a una base de datos. El sitio tambien cuenta con autenticacion, lo cual se usa para mostrar las rutas protegidas como el carrito o los pedidos realizados con anterioridad.
+
+Disfruten el sitio y cualquier recomendacion pueden dejarla por el Whatsapp que aparece en al pagina.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

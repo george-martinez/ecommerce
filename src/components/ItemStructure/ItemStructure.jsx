@@ -6,17 +6,17 @@ import './ItemStructure.css'
 
 const ItemStructure = ({dataItem, showButton = true, defaultHeight = '280px'}) => {
 
-    const { cartItems, setCartItems } = useContext(CartContext)
+    const { cartItems, setCartItems, addToCart } = useContext(CartContext)
 
     const handleClick = (event, dataItem) => { 
         if(event.target.innerText === '+'){
             setCartItems([...cartItems, {...dataItem}])
-            localStorage.setItem('cart', JSON.stringify([...cartItems, {...dataItem}]))
+            addToCart(JSON.stringify([...cartItems, {...dataItem}]))
         }
         if(event.target.innerText === '-'){
             const newCartItem = removeItem(cartItems, dataItem)
             setCartItems([...newCartItem])
-            localStorage.setItem('cart', JSON.stringify([...newCartItem]))
+            addToCart(JSON.stringify([...newCartItem]))
         }
     }
 
@@ -41,22 +41,26 @@ const ItemStructure = ({dataItem, showButton = true, defaultHeight = '280px'}) =
 }
 
 const AgregadoAlCarrito = ({ dataItem, cartItems }) => {
-    let included = false
-    let itemCount = 0
-
-    for(let i = 0; i < cartItems.length; i++) {
-        included = false 
-
-        included = cartItems[i].id === dataItem.id
-
-        if(included){
-            itemCount++
+    if(cartItems){
+        let included = false
+        let itemCount = 0
+    
+        for(let i = 0; i < cartItems.length; i++) {
+            included = false 
+    
+            included = cartItems[i].id === dataItem.id
+    
+            if(included){
+                itemCount++
+            }
         }
+    
+        return (
+            <p className="added-to-cart-box">{itemCount > 0 ? `Agregado ${itemCount}` : ""}</p>
+        )
+    }else{
+        return
     }
-
-    return (
-        <p className="added-to-cart-box">{itemCount > 0 ? `Agregado ${itemCount}` : ""}</p>
-    )
 }
 
 export { ItemStructure }

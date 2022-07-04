@@ -1,12 +1,15 @@
 import { Box, TextField, Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useAuthContext } from "../../context/AuthContext";
+import CartContext from '../../context/CartContext'
+
 
 export const Login = () => {
     
     const { login, signup } = useAuthContext()
     const [ error, setError ] = useState()
     const [ loginOrRegister, setLoginOrRegister ] = useState(null)
+    const { cartItems, addToCart } = useContext(CartContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -19,6 +22,9 @@ export const Login = () => {
                 await login(email.value, password.value)
             }else if (loginOrRegister === 'register') {
                 await signup(email.value, password.value)
+            }
+            if(cartItems.length > 0){
+                addToCart(JSON.stringify([...cartItems]))
             }
             window.history.go(-1)
         } catch (error) {

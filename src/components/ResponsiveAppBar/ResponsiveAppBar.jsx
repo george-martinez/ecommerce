@@ -26,6 +26,7 @@ const ResponsiveAppBar = () => {
 
   const handleLogout = async () => {
       await logout()
+      window.location.reload() 
   }
 
   const handleOpenNavMenu = (event) => {

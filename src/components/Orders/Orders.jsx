@@ -2,6 +2,11 @@ import { ItemStructure } from "../ItemStructure/ItemStructure"
 import { nanoid } from 'nanoid'
 import '../../Polyfills/mapCustomReverse'
 import './Orders.css'
+import { collection, getDocs } from "firebase/firestore"
+import { useAuthContext } from "../../context/AuthContext";
+import { db } from "../../firebase"
+import { useEffect, useState } from "react"
+
 
 const sumaTotal = (itemArr = []) => {
     const arrPrecios = itemArr.mapCustom(item => Number(item.precio))
@@ -43,13 +48,34 @@ const OrderLister = ({orders}) => {
 }
 
 const Orders = () => {
-    const orders = JSON.parse(localStorage.getItem('miscompras'))
+
+    const { user } = useAuthContext()
+    const [ orderState, setOrderState ] = useState(null)
+
+    //const orders = JSON.parse(localStorage.getItem('miscompras'))
+
+    useEffect(() => {
+        async function getMarker() {
+            if(user?.uid){
+                const querySnapshot = await getDocs(collection(db, "users", user.uid, "orders"));
+                
+                let orders = []
+
+                querySnapshot.forEach((doc) => {
+                    orders = [...orders, JSON.parse(doc.data().orders)]
+                });
+
+                setOrderState(orders)
+            }
+        }
+        getMarker()
+    },[user])
 
     return(
         <>
             <h1 className="orders-title">PEDIDOS REALIZADOS</h1>
             <div className="orders-box">
-                {orders ? <OrderLister orders={orders}/> : <h1>En esta seccion se encontraran sus compras cuando realice algun pedido</h1>}
+                {orderState ? <OrderLister orders={orderState}/> : <h1>En esta seccion se encontraran sus compras cuando realice algun pedido</h1>}
             </div>
         </>
     )

@@ -49,7 +49,7 @@ function App() {
               <ResponsiveAppBar></ResponsiveAppBar>
             </ThemeProvider>
             <Routes>
-              <Route path='/' element={<section className='main-section'> <CarouselCustom/> <Category categoryBoxes={categoryBoxes} /> </section>} />
+              <Route path='/' element={<section className='main-section'> <CarouselCustom /> <Category categoryBoxes={categoryBoxes} /> </section>} />
               <Route path='/categoria/:nombreCategoria' element={<CategoryDetails />} />
               <Route path='/productos' element={<Products />} />
               <Route path='/carrito' element={<ProtectedRoute> <Cart /> </ProtectedRoute>} />
