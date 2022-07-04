@@ -65,7 +65,9 @@ const Orders = () => {
                     orders = [...orders, JSON.parse(doc.data().orders)]
                 });
 
-                setOrderState(orders)
+                if(orders.length > 0){
+                    setOrderState(orders)
+                }
             }
         }
         getMarker()
