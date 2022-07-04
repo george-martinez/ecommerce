@@ -12,7 +12,7 @@ import { useAuthContext } from "../../context/AuthContext";
 
 
 const Purchase = () => {    
-    const { cartItems, setCartItems, addToOrders } = useContext(CartContext)
+    const { cartItems, setCartItems, addToOrders, addToCart } = useContext(CartContext)
     const [ buyDone, setBuyDone ] = useState(false)
     const [ buyButtonEnabled, setBuyButtonEnabled ] = useState(false)
     const { user } = useAuthContext()
@@ -39,7 +39,7 @@ const Purchase = () => {
                 adress: adress.value
             }
     
-            //localStorage.setItem('miscompras', JSON.stringify([...allOrders, [...cartItems, orderData]]))
+            localStorage.setItem('miscompras', JSON.stringify([...cartItems, orderData]))
             addToOrders(orderId, JSON.stringify([...cartItems, orderData]))
             
             for(let i = 0; i < e.target.length - 1; i++) {
@@ -47,6 +47,7 @@ const Purchase = () => {
             }
 
             setCartItems([])
+            addToCart([])
             //localStorage.removeItem('cart')
             
             setBuyDone(true)

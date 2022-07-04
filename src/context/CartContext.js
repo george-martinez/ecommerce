@@ -7,7 +7,6 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const Context = React.createContext({})
 
-//reemplazar setCartItems por otra funcion que use localstorage, y como fallback se inicie vacio
 export function CartContextProvider ({ children }) {
     const { user } = useAuthContext()
     
@@ -36,8 +35,9 @@ export function CartContextProvider ({ children }) {
                 const docSnap = await getDoc(docRef);
         
                 if (docSnap.exists()) {
-                    console.log("Document data:", docSnap.data().cart);
-                    setCartItems(JSON.parse(docSnap.data().cart))
+                    if(docSnap.data().cart.length > 0){
+                        setCartItems(JSON.parse(docSnap.data().cart))
+                    }
                 } else {
                     console.log("No such document for this user yet!");
                 }

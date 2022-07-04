@@ -4,9 +4,8 @@ import './OrderCompleted.css'
 const OrderCompleted = () => { 
     const orders = JSON.parse(localStorage.getItem('miscompras'))
     
-    const orderArr = orders[orders.length - 1]
-    const orderData = orderArr[orderArr.length - 1]
-
+    const orderData = orders[orders.length - 1]
+    
     return(
         <>
             <h1 className="orders-completed-title">Su compra ha sido realizada con éxito.</h1>
